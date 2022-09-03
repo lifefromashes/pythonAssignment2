@@ -1,7 +1,7 @@
 '''
 Script:  WK-2 Starter Script
 Author:  Kristin Skipper
-Date:    Submission Date
+Date:    09/03/2022
 Version: 
 Purpose: Search a file directory and iterate through to see each files path, size and Mac Times
 '''
@@ -14,7 +14,6 @@ import time  # Time Conversion Methods
 ''' IMPORT 3RD PARTY LIBRARIES '''
 # NONE
 
-''' DEFINE PSEUDO CONSTANTS '''
 
 ''' LOCAL FUNCTIONS '''
 
@@ -38,15 +37,15 @@ def GetFileMetaData(fileName):
         readableTimeLastAccess = makeTimeReadable(timeLastAccess)
         readableTimeLastModified = makeTimeReadable(timeLastModified)
         readableTimeCreated = makeTimeReadable(timeCreated)
-        readableTimeList = [readableTimeLastAccess, readableTimeLastModified,
-                            readableTimeCreated]  # Group the human-readable MAC Times in a List
+        readableTimeList = [readableTimeLastAccess, readableTimeLastModified, # Group the human-readable MAC Times in a List
+                            readableTimeCreated]
         return True, None, fileSize, readableTimeList
 
     except Exception as err:
         return False, str(err), None, None
 
 
-def makeTimeReadable(timeTOChange):
+def makeTimeReadable(timeTOChange):  #function to make time human readable
     timeToModify = time.strftime("%Y-%m-%d %H:%M:%S", time.gmtime(timeTOChange))
     return timeToModify
 
@@ -65,8 +64,10 @@ if __name__ == '__main__':
 
             dirEntries = os.listdir(targetDirectory)
             for eachEntry in dirEntries:
+
                 fullPath = os.path.join(targetDirectory, eachEntry)
                 success, errInfo, fileSize, timeList = GetFileMetaData(fullPath)
+
                 print("=" * 100)
 
                 if success:
@@ -80,37 +81,5 @@ if __name__ == '__main__':
                 print(eachEntry)
         else:
             print("\nInvalid Directory ... Please Try Again\n")
-    # DIR = input("Enter Directory Path: ")
-    #
-    # tbl = PrettyTable(['FilePath', 'FileType', 'FileSize', 'UTC_Modified', 'UTC_Accessed', 'UTC_Created'])
-    #
-    # fileList = os.listdir(DIR)
-    # for eachFile in fileList:
-    #     filePath = os.path.join(DIR, eachFile)
-    #     absPath = os.path.abspath(filePath)
-    #     if os.path.isfile(absPath):
-    #         fileSize = os.path.getsize(absPath)
-    #         tbl.add_row([absPath, fileSize])
-    #         utcModified = os.path.getmtime(absPath)
-    #         tbl.add_row([absPath, utcModified])
-    #         utcAccessed = os.path.getatime(absPath)
-    #         tbl.add_row([absPath, utcAccessed])
-    #         utcCreated = os.path.getctime(absPath)
-    #         tbl.add_row([absPath, utcCreated])
-
-    # print("Accessing Metadata for : ", targetFile)
-    #     fullPath = os.path.abspath(targetFile)
-    #     success, errInfo, fileSize, macList = GetFileMetaData(fileList)
-
-    # if success:
-    #     print("Success:   ", fileList)
-    #     print("File Size: ", fileSize)
-    #     print("MAC Times: ", macList)
-    # else:
-    #     print("Fail:    ", fileList, "Exception =     ", errInfo)
-
-    tbl.align = "l"
-    resultString = tbl.get_string(sortby="FileSize", reversesort=True)
-    print(resultString)
 
 print("\nScript End")
