@@ -54,6 +54,7 @@ def makeTimeReadable(timeTOChange):  #function to make time human readable
 
 if __name__ == '__main__':
 
+    print("Skipper-Kristin-WK-2-Scripting-Assignment\n")
     print("First Script: Obtain File Meta Data\n")
     # targetFile = input("Enter File Path to Process: ")
     while True:
