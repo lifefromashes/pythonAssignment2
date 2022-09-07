@@ -4,18 +4,14 @@ Week 3 Assignment
 Date:
 '''
 
-# Python Standard Libaries
 import csv
 import os
 import hashlib
-
-# Python 3rd Party Libraries
 import sys
-
 from prettytable import PrettyTable  # pip install prettytable
 import time  # Time Conversion Methods
 
-# Psuedo Constants
+
 
 # Start of the Script
 
@@ -74,7 +70,7 @@ def hashFileContents(contents):
     return hexDigest
 
 
-for currentRoot, dirList, fileList in os.walk(targetFolder):  # add in the downloaded file path from weeks zip file
+for currentRoot, dirList, fileList in os.walk(targetFolder):
     try:
         for nextFile in fileList:
             fullPath = os.path.join(currentRoot, nextFile)
@@ -100,11 +96,11 @@ print(tbl.get_string(sortby="FileSize", reversesort=True))
 
 # display as csv string
 csvString = tbl.get_csv_string()
-print(csvString)
+# print(csvString)
 
 #  Save to csv file:
 with open('out.csv', 'w') as outFile:
     print(csvString, file=outFile)
-print(os.getcwd())  # My current dir = C:\Users\Owner\PycharmProjects\UniversityOfArizonaPractice\week3
+# print(os.getcwd())  # My current dir = C:\Users\Owner\PycharmProjects\UniversityOfArizonaPractice\week3
 
 print("\nScript-End\n")
