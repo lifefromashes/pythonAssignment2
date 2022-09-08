@@ -11,23 +11,10 @@ import sys
 from prettytable import PrettyTable  # pip install prettytable
 import time  # Time Conversion Methods
 
-# Start of the Script
-
-
-while True:
-    targetFolder = input("Enter Target Folder: ")
-    if os.path.isdir(targetFolder):
-        print('Path is folder: ', targetFolder)
-        break
-    else:
-        print('Invalid folder choice please try again')
-        continue
-
-print("Walking: ", targetFolder, "\n")
-
 tbl = PrettyTable(['AbsPath', 'FileType', 'FileSize', 'LastModified', 'LastAccess', 'CreatedTime', 'SHA-256 HASH'])
 
 
+# Start of the Script
 def GetFileMetaData(fileName):
     '''
         obtain filesystem metadata
@@ -67,6 +54,17 @@ def hashFileContents(contents):
     hexDigest = sha512Obj.hexdigest()
     return hexDigest
 
+
+while True:
+    targetFolder = input("Enter Target Folder: ")
+    if os.path.isdir(targetFolder):
+        print('Path is folder: ', targetFolder)
+        break
+    else:
+        print('Invalid folder choice please try again')
+        continue
+
+print("Walking: ", targetFolder, "\n")
 
 for currentRoot, dirList, fileList in os.walk(targetFolder):
     try:
