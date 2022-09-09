@@ -34,8 +34,9 @@ def GetFileMetaData(fileName):
         readableTimeLastAccess = makeTimeReadable(timeLastAccess)
         readableTimeLastModified = makeTimeReadable(timeLastModified)
         readableTimeCreated = makeTimeReadable(timeCreated)
+
+        # Group the human-readable MAC Times in a List
         readableTimeList = [readableTimeLastAccess, readableTimeLastModified,
-                            # Group the human-readable MAC Times in a List
                             readableTimeCreated]
         return True, None, fileSize, readableTimeList
 
@@ -74,23 +75,25 @@ for currentRoot, dirList, fileList in os.walk(targetFolder):
 
             success, errInfo, fileSize, timeList = GetFileMetaData(absPath)
 
-            if success:
-                if os.path.isfile(fullPath):
-                    fileType = 'File'
-                elif os.path.isdir(fullPath):
-                    fileType = 'Directory'
-                elif os.path.islink(fullPath):
-                    fileType = 'Link'
-
             lastAccessed = timeList[0]
             lastModified = timeList[1]
             createdTime = timeList[2]
 
             with open(fullPath, 'rb') as target:
+                if success:
+                    if os.path.isfile(fullPath):
+                        fileType = 'File'
+                    elif os.path.isdir(fullPath):
+                        fileType = 'Directory'
+                    elif os.path.islink(fullPath):
+                        fileType = 'Link'
+
                 fileContents = target.read()
-                sha256Hash = hashFileContents(fileContents)
+                if fileType == 'File':
+                    sha256Hash = hashFileContents(fileContents)
 
             tbl.add_row([absPath, fileType, fileSize, lastAccessed, lastModified, createdTime, sha256Hash])
+
     except Exception as err:
         sys.exit("\nException: " + str(err))
 

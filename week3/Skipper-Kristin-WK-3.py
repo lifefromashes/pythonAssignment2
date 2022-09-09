@@ -47,9 +47,11 @@ def GetFileMetaData(fileName):
         readableTimeLastAccess = makeTimeReadable(timeLastAccess)
         readableTimeLastModified = makeTimeReadable(timeLastModified)
         readableTimeCreated = makeTimeReadable(timeCreated)
+
+        # Group the human-readable MAC Times in a List
         readableTimeList = [readableTimeLastAccess, readableTimeLastModified,
-                            # Group the human-readable MAC Times in a List
                             readableTimeCreated]
+
         return True, None, fileSize, readableTimeList
 
     except Exception as err:
