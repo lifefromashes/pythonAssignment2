@@ -35,12 +35,12 @@ try:
                             urlDict[eachURL] = 1  # otherwise, key doesn't exist, create it
                 else:
                     # File has been processed
-                    tbl = PrettyTable(["URLs", "Occurrences"])
+                    tbl = PrettyTable(["Occurrences", "URLs"])
                     for word, cnt in urlDict.items():
-                        tbl.add_row([word, cnt])
+                        tbl.add_row([cnt, word])
                     tbl.align = 'l'
                     print(tbl.get_string(sortby="Occurrences", reversesort=True))
-                    print(tbl.get_html_string())
+                    # print(tbl.get_html_string())
                     break
     else:
         print(largeFile, "is not a valid file")
@@ -49,5 +49,9 @@ try:
 
 except Exception as err:
     sys.exit("\nException: " + str(err) + "Script Aborted")
+
+with open('htmlPrettyTable.html', 'w') as outFile:
+    tbl.get_string(sortby='Occurrences', reversesort=True)
+    print(tbl.get_html_string(), file=outFile)
 
 print("\nFile Processed ... Script End")
