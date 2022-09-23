@@ -1,7 +1,7 @@
 '''
 Skipper, Kristin
 Week 4 Scripting Assignment
-Date:
+Date: 09/18/22
 '''
 
 import sys
