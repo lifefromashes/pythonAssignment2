@@ -1,14 +1,14 @@
 '''
 Skipper, Kristin
 Week 5 Scripting Assignment
-Date:
+Date: 9/23/2022
 '''
 import itertools
 import hashlib
 
 rainbowTable = {}
 
-print("Create Password Rainbow Table")
+print("Creating A Password Rainbow Table")
 for variations in range(4, 8):
     for pwTuple in itertools.product("abc123&", repeat=variations):
         pw = ""
