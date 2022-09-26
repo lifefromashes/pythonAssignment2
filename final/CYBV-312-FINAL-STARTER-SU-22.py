@@ -44,3 +44,8 @@ with open("mem.raw", 'rb') as target:  # assumes that mem.raw is in the same fol
     print("kernelCount: ", kernelCount)
     print("encryptCount:", encryptCount)
     print("fairwitnessCount: ", fairwitnessCount)
+
+    with open('out.txt', 'w') as outFile:
+        print('Kernel Count is : ', kernelCount, file=outFile)
+        print('Encrypt Count is : ', encryptCount, file=outFile)
+        print('Fair Witness Count is : ', fairwitnessCount, file=outFile)

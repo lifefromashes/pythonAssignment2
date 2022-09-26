@@ -8,8 +8,8 @@ import hashlib
 rainbowTable = {}
 
 print("Create Password Rainbow Table")
-for variations in range(4, 7):
-    for pwTuple in itertools.product("abc123&", repeat=variations):
+for variations in range(1, 4):
+    for pwTuple in itertools.combinations("abc", repeat=variations):
         pw = ""
         md5Hash = hashlib.md5()
         for eachChr in pwTuple:

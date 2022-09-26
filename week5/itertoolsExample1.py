@@ -12,7 +12,7 @@ for combinations in itertools.combinations("xyz", 3):
     print(combinations)
 
 print("Generate Permuations")
-for permutations in itertools.permutations("xyza", 4):
+for permutations in itertools.permutations("abcd", 4):
     print(permutations)
     cnt+=1
 
