@@ -14,7 +14,7 @@ try:
     largeFile = input("Enter the name of a large File: ")
     chunkSize = int(input("What size chunks?  "))
     
-    keywordList = [b"casey", b"anthony", b"secret", b"jfif", b"jpeg",b"adobe",b"rgb",b"killer"] 
+    keywordList = [b"fairwitness", b"encrypt", b"kernel"]
     
     hits = {}  # Create a dictionary to keep track of the hits
     for eachKeyword in keywordList:
@@ -40,12 +40,17 @@ try:
                     for key, value in hits.items():
                         print(key,"\t", value)
                     break
+
     else:
         print(largeFile, "is not a valid file")
         sys.exit("Script Aborted")
-                
+
+
+
 except Exception as err:
     sys.exit("\nException: "+str(err)+ "Script Aborted")
+
+
             
 print("\nFile Processed ... Script End")
 

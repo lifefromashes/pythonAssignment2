@@ -16,18 +16,20 @@ while True:
         break
     if os.path.isfile(path):
         ext = os.path.splitext(path)[1]
+
         try:
+            # with Image.open(path) as im:
             with Image.open(path) as im:
                 print("File Details")
                 print("Extension:    ", ext)
                 print("Image Format: ", im.format)
                 print("Image Width:  ", im.width,  "Pixels")
                 print("Image.Height: ", im.height, "Pixels")
-                print("Image.Mode:   ", im.mode) 
+                print("Image.Mode:   ", im.mode)
         except Exception as err:
             print("File is not a known Image Type: ", path)
     else:
-        print("Path Provide is Not a File")
+            print("Path Provide is Not a File")
     
 print("Script Done")
         

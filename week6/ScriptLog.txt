@@ -17,7 +17,7 @@
 6308-INFO-2022-06-25 14:42:25,055 	ram: 16 GB
 6308-INFO-2022-06-25 14:42:26,025 ========================================
 
-6308-INFO-2022-06-25 14:43:07,988 User Specifed Directory: c:/tst
+6308-INFO-2022-06-25 14:43:07,988 User Specified Directory: c:/testFiles
 
 6308-INFO-2022-06-25 14:44:42,547 File Processed: 
 6308-INFO-2022-06-25 14:44:43,637 	Path: c:\tst\Castle.JPG
@@ -237,3 +237,18 @@
 36744-WARNING-2022-09-23 16:16:25,078 Sample Warning Message  
 36744-ERROR-2022-09-23 16:16:25,078 Sample Error Message    
 36744-CRITICAL-2022-09-23 16:16:25,078 Sample Critical Message 
+28368-INFO-2022-09-26 15:50:13,169 We successfully read the file
+28368-INFO-2022-09-26 15:50:13,169 Script Started
+28368-WARNING-2022-09-26 15:50:13,169 Sample Warning Message  
+28368-ERROR-2022-09-26 15:50:13,170 Sample Error Message    
+28368-CRITICAL-2022-09-26 15:50:13,170 Sample Critical Message 
+20780-INFO-2022-09-26 15:53:07,124 We successfully read the file
+20780-INFO-2022-09-26 15:53:07,124 Script Started
+20780-WARNING-2022-09-26 15:53:07,124 Sample Warning Message  
+20780-ERROR-2022-09-26 15:53:07,124 Sample Error Message    
+20780-CRITICAL-2022-09-26 15:53:07,124 Sample Critical Message 
+33196-INFO-2022-09-26 16:01:17,961 We successfully read the file
+33196-INFO-2022-09-26 16:01:17,961 Script Started
+33196-WARNING-2022-09-26 16:01:17,961 Sample Warning Message  
+33196-ERROR-2022-09-26 16:01:17,962 Sample Error Message    
+33196-CRITICAL-2022-09-26 16:01:17,962 Sample Critical Message 
