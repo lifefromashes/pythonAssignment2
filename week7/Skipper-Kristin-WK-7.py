@@ -11,7 +11,7 @@ from prettytable import PrettyTable
 
 table = PrettyTable(['File', 'Ext', 'Format', 'Width', 'Height', 'Mode'])
 
-DIR = 'c:/week7'
+DIR = input("Enter Directory Path: ")
 fileList = os.listdir(DIR)
 for file in fileList:
     path = os.path.join(DIR, file)
