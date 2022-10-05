@@ -2,7 +2,7 @@
 Searching for Images with PIL
 Skipper, Kristin
 Week 7 Scripting Assignment
-September 2022
+October 5, 2022
 '''
 
 import os
