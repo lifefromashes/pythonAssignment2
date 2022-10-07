@@ -6,7 +6,7 @@ June 2021
 import re
 
 print("Final Script")
-with open("mem.raw", 'rb') as target:  # assumes that mem.raw is in the same folder as script
+with open("final/mem.raw", 'rb') as target:  # assumes that mem.raw is in the same folder as script
 
     contents = target.read()  # read the entire contents of the file
 
@@ -45,7 +45,7 @@ with open("mem.raw", 'rb') as target:  # assumes that mem.raw is in the same fol
     print("encryptCount:", encryptCount)
     print("fairwitnessCount: ", fairwitnessCount)
 
-    with open('out.txt', 'w') as outFile:
+    with open('final/out.txt', 'w') as outFile:
         print('Kernel Count is : ', kernelCount, file=outFile)
         print('Encrypt Count is : ', encryptCount, file=outFile)
         print('Fair Witness Count is : ', fairwitnessCount, file=outFile)

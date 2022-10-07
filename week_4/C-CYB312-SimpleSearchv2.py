@@ -13,24 +13,22 @@ try:
     # Prompt user for a file and Chunk Size    
     largeFile = input("Enter the name of a large File: ")
     chunkSize = int(input("What size chunks?  "))
-    
+
     keywordList = [b"fairwitness", b"encrypt", b"kernel"]
-    
+
     hits = {}  # Create a dictionary to keep track of the hits
     for eachKeyword in keywordList:
         hits[eachKeyword] = 0
-        
-    
+
     if os.path.isfile(largeFile):  # Verify file is real
         with open(largeFile, 'rb') as targetFile:
-            while True:          
+            while True:
                 fileChunk = targetFile.read(chunkSize)
                 fileChunk = fileChunk.lower()  # broaden search
-    
+
                 if fileChunk:  # if we still have data
                     # Search this chunk for our keyword
                     for eachKeyword in keywordList:
-                        
                         if eachKeyword in fileChunk:
                             cnt = hits[eachKeyword]
                             hits[eachKeyword] = cnt + 1
@@ -38,7 +36,7 @@ try:
                     # File has been processed
                     print("\nkeyword \tHits")
                     for key, value in hits.items():
-                        print(key,"\t", value)
+                        print(key, "\t", value)
                     break
 
     else:
@@ -48,9 +46,6 @@ try:
 
 
 except Exception as err:
-    sys.exit("\nException: "+str(err)+ "Script Aborted")
+    sys.exit("\nException: " + str(err) + "Script Aborted")
 
-
-            
 print("\nFile Processed ... Script End")
-
