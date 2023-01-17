@@ -1,7 +1,7 @@
 import itertools
 import hashlib
 
-from week5.itertoolsExample1 import variations
+from Cybv312.week5.itertoolsExample1 import variations
 
 
 

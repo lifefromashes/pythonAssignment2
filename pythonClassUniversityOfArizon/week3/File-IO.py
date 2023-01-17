@@ -7,7 +7,7 @@ same folder as the script
 '''
 try:
 
-    with open("test.txt",'r') as book:
+    with open("test.txt", 'r') as book:
         content = book.read()
         print(content)
 

@@ -8,7 +8,7 @@ import logging      # Python Standard Logging Library
 # Turn on Logging
 
 print("\nSample Python Logging\n")
-logging.basicConfig(filename='ScriptLog.txt',level=logging.DEBUG,format='%(process)d-%(levelname)s-%(asctime)s %(message)s')
+logging.basicConfig(filename='ScriptLog.txt', level=logging.DEBUG, format='%(process)d-%(levelname)s-%(asctime)s %(message)s')
 
 
 with open("ScriptLog.txt", 'r') as test:
