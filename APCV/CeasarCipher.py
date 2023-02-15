@@ -1,6 +1,6 @@
 def encode(msg, shift):
     new_msg = ""
-    # A for loop to check each ch in msg:
+    # Used a for loop to check each char in msg:
     for i in range(len(msg)):
         ch = msg[i]
 
@@ -9,7 +9,7 @@ def encode(msg, shift):
             new_msg += " "
         # check if a character is uppercase then encrypt it accordingly
         elif ch.isupper():  # if the character is an uppercase letter
-            # chr((ord(ch) - ord('A') + shift) % 26 + ord('A'))
+            # used ord below to convert the unicode char to its integer equivalent
             new_msg += chr((ord(ch) + shift - 65) % 26 + 65)
         # check if a character is digit then leave the way it is then encrypt it accordingly
         elif ch.islower():
