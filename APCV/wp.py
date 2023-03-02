@@ -35,10 +35,13 @@ def getDict(filetext):
         a word as its key and the word's frequency number as its value
     """
     words = text_to_words(filetext)
-
-    words_dict = dict(words)
-
-    return words_dict
+    dictionary = {}
+    for word in words:
+        if word in dictionary:
+            dictionary[word] += 1
+        else:
+            dictionary[word] = 1
+    return dictionary
 
 
 def getVocabulary(filetext):
@@ -52,12 +55,17 @@ def getVocabulary(filetext):
 
 
 file_content = load_string_from_file("brooks.txt")
-print(file_content)
+print('File Contents:\n', file_content)
+
+print('\n')
 
 file_word_count = getWordcount(file_content)
-print(file_word_count)
+print('Word Count: ', file_word_count)
+print('\n')
 
+print('Dictionary Values: ')
 for key, value in getDict(file_content).items():
     print(key, value)
+print('\n')
 
-print(getVocabulary(file_content))
+print('Vocab: \n', getVocabulary(file_content))
