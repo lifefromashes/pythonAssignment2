@@ -1,3 +1,6 @@
+#Kristin Skipper APCV 320 WP assignment 3/2/23
+#I kept the books text in the same package as my wp.py
+
 def text_to_words(the_text):
     """ return a list of words with all punctuation and numbers removed,
       and all in lowercase based on the given text string.

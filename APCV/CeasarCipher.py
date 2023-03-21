@@ -1,3 +1,5 @@
+#CeasarCipher Assignment APCV 320 Kristin Skipper
+
 def encode(msg, shift):
     new_msg = ""
     # Used a for loop to check each char in msg:
