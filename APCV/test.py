@@ -1,59 +1,32 @@
-# print(3 + 4 == 7)
-# print(3 / 4)
-# print("a string", "xyz")
-# print(16 - 2 * 5 // 3 + 1)
-# print("""This message input has
-# several lines
-# of the text.""")
-#
-# print(-3.999, int(-3.999))
+# mydict = {"cat":12, "dog":6, "elephant":23, "bear":20}
+# yourdict = mydict
+# yourdict["elephant"] = 999
+# print(mydict["elephant"])
 
-# print("123.45")
-# print(float("123.45"))
-# print(type("123.45"))
-# print(type(float("123.45")))
+class Point:
 
-# def square(x):
-#     runningtotal = 0
-#     for counter in range(x):
-#         runningtotal = runningtotal + x
-#     return runningtotal
-# n = 15
-# result = square(n)
-# print(result)
+    def __init__(self, initX, initY):
 
-#
-# import random
-#
-# diceThrow = random.randrange(1, 7)
-# print(diceThrow)
+        """ Create a new point at the given coordinates. """
+        self.x = initX
+        self.y = initY
 
-# def f1(x):
-#     for counter in range(x):
-#         runningtotal = 0
-#         runningtotal = runningtotal + x
-#     return runningtotal
-#
-# def f2(x):
-#     runningtotal = 0
-#     for counter in range(x):
-#         runningtotal = runningtotal + x
-#
-#     return runningtotal
-#
-# toSquare = 10
-# f1Result = f1(toSquare)
-# f2Result = f2(toSquare)
-# print(f1Result, f2Result)
+    def getX(self):
+        return self.x
 
-def removeSomeChars(s):
-    vowels = "aeiouAEIOU"
-    digits = "0123456789"
-    newS = ""
-    for eachChar in s:
-        if (eachChar not in vowels) and (eachChar not in digits):
-            newS = newS + eachChar
-    return newS
+    def getY(self):
+        return self.y
 
+    def __str__(self):
+        return "x=" + str(self.x) + ", y=" + str(self.y)
 
-print(removeSomeChars("APCV320"))
+    def halfway(self, target):
+        mx = (self.x + target.x) // 2
+        my = (self.y + target.y) // 2
+        return Point(mx, my)
+
+p = Point(6, 4)
+q = Point(8, 12)
+mid = p.halfway(q)
+
+print(mid)

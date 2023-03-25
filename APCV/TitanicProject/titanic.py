@@ -1,18 +1,17 @@
-class Passenger(object):
+# TITANIC ASSIGNMENT / KRISTIN SKIPPER 03_25_2023 / APCV 320  / PROFESSOR LI XU
+
+class Passenger:
     """
     A class to represent a Passenger object for Titanic data
-
     Attributes:
     cabinClass - an int value (1 or 2 or 3)
     gender - a string value equals to either 'M' or 'F'
     label - a string value either "Survived" or "Died"
     name - a string for the passenger name
-
     Methods:
     __init__
     Getter methods to access the data attributes
     __str__
-
     """
 
     def __init__(self, cabinClass, gender, label, name):
@@ -41,12 +40,10 @@ class Passenger(object):
 class TitanicData(object):
     """
     A class to process Titanic data
-
     Attributes:
     fname - a string value representing the filename
     processed - a bool value True or False
     examples - a list of Passengers
-
     Methods:
     __init__
     buildTitanticExamples
@@ -64,66 +61,62 @@ class TitanicData(object):
         By this method, self.examples is set as the the list of Passenger objects
         built based on the given file with fname; and self.processed is set as True
         """
-        # passenger = Passenger(self.examples)
-        with open('TitanicPassengers.txt') as f:
-            # for line in f:
-            # passenger = Passenger(self.gender, self.name, self.label)
-            passengerList = f.readlines()
-            name = []
-            label = []
-            cabinClass = []
-            gender = []
-            for line in passengerList:
-                newList = line.split(",")
-                self.examples.append(newList)
-                for item in newList:
-                    # print('item', item[0:6])
-                    name = item[0::]
-                    # label = item[0][1]
-                    passenger = Passenger(name, label, cabinClass, gender)
-                print('label', label)
-            print('newlist', self.examples)
-            print(passenger)
+        with open(self.fname, 'r') as file:
+            for line in file:
+                data = line.strip().split(',')
+                cabinClass = int(data[0])
+                gender = data[2]
+                label = 'Survived' if data[3] == '1' else 'Died'
+                name = data[4] + ', ' + data[5]
+                passenger = Passenger(cabinClass, gender, label, name)
+                self.examples.append(passenger)
 
-            # print(self.examples)
-            # print(len(self.examples))
-
-            self.processed = True
-        print('Example list', self.examples)
-
-        # print(person)
-
-        # ['1,29.0,F,1,Allen, Miss. Elisabeth Walton\n',
-
-        # print(len(self.examples))
-        # print('examples list', self.examples)
+        self.processed = True
 
     def isProcessed(self):
         return self.processed
 
-    def countPassengers(self, persons, cabinClass):
-        """
-        Given a list of Passenger objects and a cabin class value,
-        return the number of persons who booked the cabin class
 
-        Parameters:
-        persons - a list of Passenger objects
-        cabinClass - a int value equals to either 1 or 2 or 3
+def countPassengers(persons, cabinClass):
+    """
+    Given a list of Passenger objects and a cabin class value,
+    return the number of persons who booked the cabin class
+    Parameters:
+    persons - a list of Passenger objects
+    cabinClass - a int value equals to either 1 or 2 or 3
+    Returns:
+    the number of persons who booked the cabin class
+    """
+    count = 0
+    for passenger in persons:
+        if passenger.getCabinClass() == cabinClass:
+            count += 1
+    return count
 
-        Returns:
-        the number of persons who booked the cabin class
-        """
-        pass
+
+def survivedPassengers(persons, gender):
+    """
+    Given a list of Passenger objects and a gender value,
+    return the number of survived persons with a certain gender
+
+    Parameters:
+    persons - a list of Passenger objects
+    gender - a string value equals to either 'M' or 'F'
+
+    Returns:
+    the number of survived persons with gender
+    """
+    survived_count = 0
+    for person in persons:
+        if person.getGender() == gender and person.getLabel() == "Survived":
+            survived_count += 1
+    return survived_count
 
 
-
-# p = Passenger(1, 'F', 'Survived', 'Miss. Elisabeth Walton Allen')
-# print('The passenger is: ', p)
-#
 data = TitanicData("TitanicPassengers.txt")
 print(data.isProcessed())
 data.buildTitanicExamples()
 print('Finished processing', len(data.examples), 'passengers\n')
 print(data.isProcessed())
-
-# print(count_passengers(data.examples, 1))
+print('COUNT PASSENGER CABIN CLASS: ', countPassengers(data.examples, 1))
+print('SURVIVED PASSENGER & GENDER: ', survivedPassengers(data.examples, 'F'))
