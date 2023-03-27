@@ -1,4 +1,4 @@
-from APCV.TitanicProject.TitanicPractice.Passenger import Passenger
+from APCV.TitanicPractice.Passenger import Passenger
 
 
 class TitanicData(Passenger):
