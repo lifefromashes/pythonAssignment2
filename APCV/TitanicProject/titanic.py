@@ -113,6 +113,8 @@ def survivedPassengers(persons, gender):
     return survived_count
 
 
+p = Passenger(1, 'F', 'Survived', 'Miss. Elisabeth Walton Allen')
+print(p)
 data = TitanicData("TitanicPassengers.txt")
 print(data.isProcessed())
 data.buildTitanicExamples()
