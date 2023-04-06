@@ -69,7 +69,7 @@ def extractTextFileFrames(input_filename, src_encoding="utf-8"):
                 frameId = (line.split()[1])
             if line.startswith('Ethernet II'):
                 source = line.split('Src: ')[1].split()[1]
-                source_str = source.replace("(", "").replace(")", "")
+                source_str = source.replace("(", "").replace(")", "").replace(",", "")
                 dest = line.split('Dst: ')[1].split()[1]
                 dest_str = dest.replace("(", "").replace(")", "")
 
