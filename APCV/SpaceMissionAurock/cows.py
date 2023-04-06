@@ -63,18 +63,6 @@ def load_cows(filename):
     a list of Cow objects
     """
     # TODO: Your code here
-    # data = []
-    # with open(filename, 'r') as file:
-    #     for line in file:
-    #         cowList = line.strip().split(',')
-    #         cowName = cowList[0]
-    #         cowWeight = int(cowList[1])
-    #         cowIQ = int(cowList[2])
-    #         cowDensity = cowIQ / cowWeight
-    #         cow = Cow(cowName, cowWeight, cowIQ, cowDensity)
-    #         # print('COW', cow)
-    #         data.append(cow)
-    # return data
     data = []
     with open(filename, 'r') as file:
         for line in file:
