@@ -1,6 +1,6 @@
 """
-Space Mission to Aurock, Kristin Skipper
-APCV 320 Professor Li Xu
+Space Mission to Aurok, Kristin Skipper
+APCV 320 Professor Li
 4/10/23
 """
 import time
@@ -20,7 +20,6 @@ class Cow(object):
     Getter methods for name, weight, and i
     getDensity: returns the IQ density of Cow
     """
-
     def __init__(self, name, weight, iq):
         """
         Parameters:
@@ -64,6 +63,18 @@ def load_cows(filename):
     a list of Cow objects
     """
     # TODO: Your code here
+    # data = []
+    # with open(filename, 'r') as file:
+    #     for line in file:
+    #         cowList = line.strip().split(',')
+    #         cowName = cowList[0]
+    #         cowWeight = int(cowList[1])
+    #         cowIQ = int(cowList[2])
+    #         cowDensity = cowIQ / cowWeight
+    #         cow = Cow(cowName, cowWeight, cowIQ, cowDensity)
+    #         # print('COW', cow)
+    #         data.append(cow)
+    # return data
     data = []
     with open(filename, 'r') as file:
         for line in file:
@@ -128,31 +139,34 @@ def greedy(cows, maxCost, method=1):
 
     return result, totalValue
 
+
+# data = load_cows("cows1.txt")
+data = load_cows("testFile.txt")
+for i in range(len(data)):
+    print('COW DATA: ', data[i])
+
 # Let us try this Cow class
 mary = Cow('mary', 3, 120)
 print('Cow: ', mary)
-data = load_cows("cows1.txt")
-# for i in range(len(data)):
-#     print('COW DATA: ', data[i])
-
 
 result, totalValue = greedy(data, maxCost=1000, method=1)
+print("Selected cows:", result)
+print("Total IQ value:", totalValue)
+print("SORT", insertionSort(data))
 
 
 #########################################################################
 
-def testGreedy(filename, constraint, method, toPrint=False):
+def testGreedy(filename, constraint, method=1, toPrint=False):
     items = load_cows(filename)
 
-    # start = time.process_time_ns()
-    start = time.perf_counter()
+    start = time.process_time_ns()
     print("At the beginning of processing {}".format(filename))
     print("Start time (in nanoseconds): {} \n".format(start))
 
     taken, val = greedy(items, constraint, method)
 
-    # end = time.process_time_ns()
-    end = time.perf_counter()
+    end = time.process_time_ns()
     print("At the end of processing {}".format(filename))
     print("End time (in nanoseconds): {} ".format(end))
     print("\nElapsed time to process {} in {} nanoseconds.".format(filename, end - start))
@@ -163,10 +177,10 @@ def testGreedy(filename, constraint, method, toPrint=False):
             print('   ', item)
 
 
-testGreedy("cows1.txt", 100, 1)
+testGreedy("cows1.txt", 100)
 print('###########################################')
 testGreedy("cows1.txt", 100, 2)
-# print('###########################################')
-# testGreedy("cows2.txt", 100, 1)
-# print('###########################################')
-# testGreedy("cows2.txt", 100, 2)  # this one takes forever to run
+print('###########################################')
+testGreedy("cows2.txt", 100)
+print('###########################################')
+testGreedy("cows2.txt", 100, 2)

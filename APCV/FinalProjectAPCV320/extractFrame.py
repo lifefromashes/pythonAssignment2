@@ -1,3 +1,8 @@
+"""
+Kristin Skipper Final Project
+APCV 320 Professor Li Xu
+Date: 4/7/2023
+"""
 class Frame:
     """
     A Frame is use to represent a data frame described in the given file.
