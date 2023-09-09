@@ -63,8 +63,7 @@ class FileProcessor:
             # attempt open
             with open(fullPath, 'rb') as file:
                 # attempt to read the contents
-                fileContents = file.read(20)
-                print('File 20 bytes: ', fileContents)
+                fileContents = file.read()
                 return fileContents
         except Exception as err:
             print("Exception Occurred: ", err)
@@ -83,6 +82,9 @@ class FileProcessor:
         try:
             with open(fullPath, 'rb') as hexFileRep:
                 fileContents = hexFileRep.read(20)
+                # use for loop to iterate over each byte in fileContents
+                # Use a string format that converts the bytes into two char hex representation
+                # Use .join to join them the bytes with a space in between
                 hexRepresentation = ' '.join(f'{byte:02x}' for byte in fileContents)
         except Exception as err:
             print("Exception Occurred: ", err)
