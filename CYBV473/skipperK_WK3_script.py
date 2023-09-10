@@ -63,7 +63,7 @@ class FileProcessor:
             # attempt open
             with open(fullPath, 'rb') as file:
                 # attempt to read the contents
-                fileContents = file.read()
+                fileContents = file.read(20)
                 return fileContents
         except Exception as err:
             print("Exception Occurred: ", err)
@@ -84,7 +84,7 @@ class FileProcessor:
                 fileContents = hexFileRep.read(20)
                 # use for loop to iterate over each byte in fileContents
                 # Use a string format that converts the bytes into two char hex representation
-                # Use .join to join them the bytes with a space in between
+                # Use .join to join the bytes with a space in between
                 hexRepresentation = ' '.join(f'{byte:02x}' for byte in fileContents)
         except Exception as err:
             print("Exception Occurred: ", err)
@@ -94,6 +94,7 @@ class FileProcessor:
 while True:
     # prompt user for directory path
     dirPath = input("Enter a Directory to Scan or Q to Quit: ")
+    # verify valid directory input
     if not os.path.isdir(dirPath):
         print("Invalid Directory - try again")
         continue
@@ -108,6 +109,7 @@ files = os.listdir(dirPath)
 for root, dirs, files in os.walk(dirPath):
     # Iterate through each file it finds in the directory
     for file in files:
+        # Get the file path
         path = os.path.join(root, file)
         fullPath = os.path.abspath(path)
         print('File full path: ', fullPath)
