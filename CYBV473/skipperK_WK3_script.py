@@ -1,7 +1,7 @@
 '''
 Week Three Assignment 4 - File Processing Object
 Kristin Skipper
-September 9, 2023
+September 12, 2023
 
 
 Complete the script below to do the following:
@@ -47,6 +47,9 @@ class FileProcessor:
     def __init__(self, filePath):
         ''' Class Constructor '''
         # Storing instance attributes
+        # Verify if the file exists
+        if not os.path.exists(filePath):
+            raise FileNotFoundError(f"File not found: {filePath}")
         self.filePath = filePath
         self.size = os.path.getsize(filePath)
         self.creationTimestamp = os.path.getctime(filePath)
@@ -81,6 +84,7 @@ class FileProcessor:
         print('Modified Timestamp: ', modifiedFormattedTime)
         try:
             with open(fullPath, 'rb') as hexFileRep:
+                hexRepresentation = ''
                 fileContents = hexFileRep.read(20)
                 # use for loop to iterate over each byte in fileContents
                 # Use a string format that converts the bytes into two char hex representation
