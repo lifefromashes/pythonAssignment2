@@ -30,7 +30,8 @@ sorted_strings = []
 # Create pretty table
 resultTable = PrettyTable(['String', 'Number of Occurrences'])
 # Open binary file
-with open('mem.raw', 'rb') as binaryFile:
+# with open('C:/Users/Administrator/Desktop/week5/mem.raw', 'rb') as binaryFile:  # Used this path in virtual desktop
+with open('mem.raw', 'rb') as binaryFile:  # I use this when testing on my local machine
     while True:
         fileContents = binaryFile.read(CHUNK_SIZE)
         if not fileContents:

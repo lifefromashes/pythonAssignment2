@@ -37,7 +37,8 @@ uPatt = re.compile(b'\w+:\/\/[\w@][\w.:@]+\/?[\w.\.?=%&=\-@$,]*')
 emailDict = {}
 urlDict = {}
 # Open binary file
-with open('mem.raw', 'rb') as binaryFile:
+# with open('C:/Users/Administrator/Desktop/week5/mem.raw', 'rb') as binaryFile:  # Used this path in virtual desktop
+with open('mem.raw', 'rb') as binaryFile:  # I use this when testing on my local machine
     while True:
         # Read in by chunk size
         chunk = binaryFile.read(CHUNK_SIZE)
