@@ -35,8 +35,8 @@ uniqueWorms = set()
 
 # Opening the file that is saved in same place as the script
 # also tested with opening it from other saved location
-with open("c:/redhat.txt", 'r') as logFile:
-# with open("redhat.txt", 'r') as logFile:
+# with open("c:/redhat.txt", 'r') as logFile:
+with open("redhat.txt", 'r') as logFile:
     for eachLine in logFile:
         eachLineList = eachLine.split()
         for eachItem in eachLineList:
